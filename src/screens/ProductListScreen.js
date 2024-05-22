@@ -1,9 +1,10 @@
-import { Pressable, View, ScrollView, Text } from "react-native";
 import React, { useEffect, useContext } from "react";
+import { Pressable, View, ScrollView, Text } from "react-native";
 import { SafeAreaView } from "react-native-safe-area-context";
 import MaterialIcons from "react-native-vector-icons/MaterialIcons";
 import ProductItem from "../components/ProductItem";
 import ProductContext from "../features/productContext";
+import { getProducts } from "../features/firebase/product";
 
 const ProductListScreen = ({ navigation }) => {
   const { products, setProducts } = useContext(ProductContext);
@@ -24,7 +25,7 @@ const ProductListScreen = ({ navigation }) => {
       headerLeft: () => (
         <Pressable
           onPress={goBack}
-          className=" justify-center items-center h-10 w-10 mx-4 rounded-full "
+          style={{ justifyContent: "center", alignItems: "center", marginHorizontal: 10 }}
         >
           <MaterialIcons name="chevron-left" size={34} color={"#111"} />
         </Pressable>
@@ -33,16 +34,19 @@ const ProductListScreen = ({ navigation }) => {
         backgroundColor: "white",
       },
       headerTitleAlign: "center",
-    }),
-      fetchAllProducts();
+    });
+    fetchAllProducts();
   }, []);
+
   return (
-    <SafeAreaView className="flex-1 w-full px-4 bg-white">
+    <SafeAreaView style={{ flex: 1, padding: 20, backgroundColor: "#fff" }}>
       <ScrollView showsVerticalScrollIndicator={false}>
         {products?.map((product) => (
-          <Pressable key={product.id} onPress={() => navigation.navigate("detailscreen",{
-            productId:product?.id
-          })}>
+          <Pressable
+            key={product.id}
+            onPress={() => navigation.navigate("DetailScreen", { product: product })}
+            style={{ marginBottom: 20 }}
+          >
             <ProductItem
               title={product?.title}
               image={product?.image}

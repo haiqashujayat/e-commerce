@@ -1,47 +1,45 @@
-import { StyleSheet, Text, View, Image, Pressable,ToastAndroid } from "react-native";
+import { Text, View, Image, Pressable, ToastAndroid } from "react-native";
 import React, { useContext } from "react";
-import MaterialIcons from "react-native-vector-icons/MaterialIcons"
+import MaterialIcons from "react-native-vector-icons/MaterialIcons";
 import { removeItemById } from "../features/firebase/cart";
 import CartContext from "../features/cartContext";
 
-const CartItem = ({title,image,price,brand,qty,id}) => {
-  const {setCartItems} = useContext(CartContext)
+const CartItem = ({ title, image, price, brand, qty, id }) => {
+  const { setCartItems } = useContext(CartContext);
 
-
-  const removeItem = async() =>{
-    const res = await removeItemById(id)
-    if(res.success===true){
-      ToastAndroid.show("Removed Successfully",ToastAndroid.BOTTOM)
-      setCartItems(res.data)
+  const removeItem = async () => {
+    const res = await removeItemById(id);
+    if (res.success === true) {
+      ToastAndroid.show("Removed Successfully", ToastAndroid.BOTTOM);
+      setCartItems(res.data);
     }
-  }
+  };
 
   return (
-    <View >
-    <View className="flex-row">
-      <View className="p-2">
-        <Image source={{uri:image}} className="rounded-xl h-20 w-20 object-contain" />
-      </View>
-      <View className="flex-1 flex-row  justify-between items-center w-[100%]  px-4">
-        <View className="w-[50%]">
-          <Text className="font-bold" numberOfLines={1}>{title}</Text>
-          <Text className="text-xs">{brand}</Text>
-          <Text className="font-extrabold">Qty: {qty}</Text>
-          <Text className="font-extrabold">${price}</Text>
+    <View style={{ marginBottom: 10 }}>
+      <View style={{ flexDirection: "row", paddingHorizontal: 10 }}>
+        <View style={{ padding: 10 }}>
+          <Image
+            source={{ uri: image }}
+            style={{ width: 80, height: 80, borderRadius: 10 }}
+          />
         </View>
-        <View className="flex-row  px-3 h-8 justify-center items-center bg-gray-200  rounded-3xl">
-          <Pressable onPress={removeItem} className="mr-2 flex-row">
-            <MaterialIcons name="delete-outline" size={20} />
-           <Text>Remove</Text>
-          </Pressable>
+        <View style={{ flex: 1, paddingHorizontal: 10 }}>
+          <Text style={{ fontWeight: "bold", fontSize: 16, marginBottom: 5 }} numberOfLines={1}>
+            {title}
+          </Text>
+          <Text style={{ fontSize: 14, marginBottom: 5 }}>{brand}</Text>
+          <Text style={{ fontWeight: "bold", marginBottom: 5 }}>Qty: {qty}</Text>
+          <Text style={{ fontWeight: "bold", fontSize: 16 }}>${price}</Text>
         </View>
+        <Pressable onPress={removeItem} style={{ justifyContent: "center", alignItems: "center", padding: 10 }}>
+          <MaterialIcons name="delete-outline" size={24} color="black" />
+          <Text style={{ fontSize: 12 }}>Remove</Text>
+        </Pressable>
       </View>
-      </View>
-      <View className="my-1 border border-gray-200 " />
+      <View style={{ borderBottomWidth: 1, borderBottomColor: "#ccc" }} />
     </View>
   );
 };
 
 export default CartItem;
-
-const styles = StyleSheet.create({});

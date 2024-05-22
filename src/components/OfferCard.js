@@ -1,28 +1,70 @@
-import { StyleSheet, Text, View, Pressable, Image } from "react-native";
+import { Text, View, Pressable, Image } from "react-native";
 import React from "react";
 import Suit from "../../assets/suit.png";
 
 const OfferCard = () => {
   return (
-    <View className="flex-row max-w-[250px] py-2 mr-6 max-h-[160px] overflow-hidden bg-[#c7c7c7] rounded-2xl">
-      <View className="px-4 py-2">
-        <Text className="font-extrabold text-2xl">50% Off</Text>
-        <Text className="text-lg">On everything today</Text>
-        <Text className="text-xs my-2">With code: FSCREATION</Text>
+    <View style={styles.container}>
+      <View style={styles.textContainer}>
+        <Text style={styles.discount}>50% Off</Text>
+        <Text style={styles.offer}>On everything today</Text>
+        <Text style={styles.code}>With code: FSCREATION</Text>
 
-        <Pressable className="bg-black w-20 rounded-2xl">
-          <Text className="text-white text-xs font-semibold mx-3 my-1">
-            Get Now
-          </Text>
+        <Pressable style={styles.button}>
+          <Text style={styles.buttonText}>Get Now</Text>
         </Pressable>
       </View>
       <View>
-        <Image source={Suit} className="object-contain h-[150px] w-[55px]" />
+        <Image source={Suit} style={styles.image} />
       </View>
     </View>
   );
 };
 
-export default OfferCard;
+const styles = {
+  container: {
+    flexDirection: 'row',
+    maxWidth: 250,
+    paddingVertical: 2,
+    marginRight: 6,
+    maxHeight: 160,
+    overflow: 'hidden',
+    backgroundColor: '#c7c7c7',
+    borderRadius: 20,
+  },
+  textContainer: {
+    paddingHorizontal: 20,
+    paddingVertical: 10,
+  },
+  discount: {
+    fontWeight: 'bold',
+    fontSize: 20,
+  },
+  offer: {
+    fontSize: 16,
+  },
+  code: {
+    fontSize: 12,
+    marginTop: 5,
+  },
+  button: {
+    backgroundColor: 'black',
+    width: 60,
+    borderRadius: 20,
+    marginTop: 10,
+    paddingVertical: 5,
+  },
+  buttonText: {
+    color: 'white',
+    textAlign: 'center',
+    fontSize: 12,
+    fontWeight: 'bold',
+  },
+  image: {
+    width: 55,
+    height: 150,
+    resizeMode: 'contain',
+  },
+};
 
-const styles = StyleSheet.create({});
+export default OfferCard;

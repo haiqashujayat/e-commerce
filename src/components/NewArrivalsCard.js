@@ -1,20 +1,54 @@
-import { StyleSheet, Text, View,Image } from 'react-native'
-import React from 'react'
-import Bag from "../../assets/bag.png"
+import { StyleSheet, Text, View, Image } from 'react-native';
+import React from 'react';
+import Bag from "../../assets/bag.png";
 
-const NewArrivalsCard = ({title,brand,price,image}) => {
+const NewArrivalsCard = ({ title, brand, price, image }) => {
   return (
-    <View className="max-w-[150px] justify-center items-center overflow-hidden mr-6">
-      <Image source={{uri:image}} className="rounded-xl  h-36 w-32" />
-      <View className="mt-2 justify-center items-center">
-      <Text className="font-bold">{title}</Text>
-      <Text className="text-xs">{brand}</Text>
-      <Text className="font-extrabold">${price}</Text>
+    <View style={styles.container}>
+      <Image source={{ uri: image }} style={styles.image} />
+      <View style={styles.details}>
+        <Text style={styles.title}>{title}</Text>
+        <Text style={styles.brand}>{brand}</Text>
+        <Text style={styles.price}>${price}</Text>
       </View>
     </View>
-  )
-}
+  );
+};
 
-export default NewArrivalsCard
+const styles = StyleSheet.create({
+  container: {
+    flexDirection: 'row',
+    alignItems: 'center',
+    marginBottom: 10,
+    backgroundColor: '#F4F4F4',
+    padding: 10,
+    borderRadius: 10,
+  },
+  image: {
+    width: 100,
+    height: 100,
+    marginRight: 10,
+    borderRadius: 10,
+  },
+  details: {
+    flex: 1,
+  },
+  title: {
+    fontWeight: 'bold',
+    fontSize: 18,
+    marginBottom: 5,
+    color: '#333',
+  },
+  brand: {
+    fontSize: 14,
+    marginBottom: 5,
+    color: '#666',
+  },
+  price: {
+    fontWeight: 'bold',
+    fontSize: 16,
+    color: '#000',
+  },
+});
 
-const styles = StyleSheet.create({})
+export default NewArrivalsCard;

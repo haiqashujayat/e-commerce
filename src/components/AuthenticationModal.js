@@ -14,7 +14,6 @@ import AuthContext from "../features/authContext";
 import Logo from "../../assets/logo.png";
 import { loginWithEmailAndPassword, registerWithEmailAndPassword } from "../features/firebase/userAuth";
 
-
 const AuthenticationModal = ({ modalVisible, setModalVisible }) => {
   const [type, setType] = useState("login");
   const [name, setName] = useState("");
@@ -40,17 +39,16 @@ const AuthenticationModal = ({ modalVisible, setModalVisible }) => {
   
 
   const handleRegister = async() => {
-      setLoading(true)
-      const res = await registerWithEmailAndPassword(name,email,password)
-      if(res.success===true){
-        setCurrentUser({name,email})
-        setModalVisible(false);
-        setIsLoggedIn(true)
-        setLoading(false)
-      }
+    setLoading(true)
+    const res = await registerWithEmailAndPassword(name,email,password)
+    if(res.success===true){
+      setCurrentUser({name,email})
+      setModalVisible(false);
+      setIsLoggedIn(true)
       setLoading(false)
+    }
+    setLoading(false)
   };
-
 
   useEffect(() => {
     if (currentUser) {
@@ -59,7 +57,7 @@ const AuthenticationModal = ({ modalVisible, setModalVisible }) => {
   }, [currentUser]);
 
   return (
-    <View style={{ flex: 1, width: 1150, backgroundColor: "red" }}>
+    <View style={{ flex: 1 }}>
       <Modal
         animationType="slide"
         transparent={true}
@@ -69,89 +67,79 @@ const AuthenticationModal = ({ modalVisible, setModalVisible }) => {
         }}
       >
         {type === "login" ? (
-          <Pressable onPress={()=>setModalVisible(false)} className="flex-1 justify-center items-center bg-black/[0.5]">
-            <View className={`w-[80%] p-6 bg-white rounded-lg z-10`}>
-              <Text className="font-bold mb-2">Email:</Text>
+          <Pressable onPress={()=>setModalVisible(false)} style={{ flex: 1, justifyContent: 'center', alignItems: 'center', backgroundColor: 'rgba(0, 0, 0, 0.5)' }}>
+            <View style={{ width: '80%', padding: 20, backgroundColor: '#fff', borderRadius: 10, zIndex: 10 }}>
+              <Text style={{ fontWeight: 'bold', marginBottom: 10 }}>Email:</Text>
               <TextInput
-                className="border border-slate-300 px-3 py-2"
                 value={email}
                 onChangeText={setEmail}
                 keyboardType="email-address"
+                style={{ borderWidth: 1, borderColor: '#ccc', padding: 10, marginBottom: 10 }}
               />
-              <Text className="font-bold mt-4 mb-2">Password:</Text>
+              <Text style={{ fontWeight: 'bold', marginBottom: 10 }}>Password:</Text>
               <TextInput
-                className="border border-slate-300 px-3 py-2"
                 value={password}
                 onChangeText={setPassword}
                 secureTextEntry={true}
+                style={{ borderWidth: 1, borderColor: '#ccc', padding: 10, marginBottom: 10 }}
               />
 
               <TouchableOpacity
-                className="bg-black py-4 mt-6 rounded-lg"
                 onPress={handleLogin}
+                style={{ backgroundColor: 'black', padding: 10, borderRadius: 5 }}
               >
-                <Text className="text-white font-semibold text-center">
+                <Text style={{ color: 'white', fontWeight: 'bold', textAlign: 'center' }}>
                   Login
                 </Text>
               </TouchableOpacity>
-              <View className="flex-row justify-center items-center mt-4">
-                <Text className="text-slate-500">Not a User?</Text>
+              <View style={{ flexDirection: 'row', justifyContent: 'center', alignItems: 'center', marginTop: 10 }}>
+                <Text style={{ color: '#999' }}>Not a User?</Text>
                 <Pressable onPress={() => setType("register")}>
-                  <Text className="font-bold"> Register</Text>
+                  <Text style={{ fontWeight: 'bold' }}> Register</Text>
                 </Pressable>
               </View>
-              {loading
-                &&
-                <ActivityIndicator />
-              }
-              
+              {loading && <ActivityIndicator />}
             </View>
           </Pressable>
         ) : (
-          <Pressable onPress={()=>setModalVisible(false)} className="flex-1 justify-center items-center bg-black/[0.5]">
-            <View className={`w-[80%] p-6 bg-white`}>
-              <Text className="font-bold mb-2">Name:</Text>
+          <Pressable onPress={()=>setModalVisible(false)} style={{ flex: 1, justifyContent: 'center', alignItems: 'center', backgroundColor: 'rgba(0, 0, 0, 0.5)' }}>
+            <View style={{ width: '80%', padding: 20, backgroundColor: '#fff', borderRadius: 10, zIndex: 10 }}>
+              <Text style={{ fontWeight: 'bold', marginBottom: 10 }}>Name:</Text>
               <TextInput
-                className="border border-slate-300 px-3 py-2"
                 value={name}
                 onChangeText={setName}
+                style={{ borderWidth: 1, borderColor: '#ccc', padding: 10, marginBottom: 10 }}
               />
-              <Text className="font-bold mb-2">Email:</Text>
+              <Text style={{ fontWeight: 'bold', marginBottom: 10 }}>Email:</Text>
               <TextInput
-                className="border border-slate-300 px-3 py-2"
                 value={email}
                 onChangeText={setEmail}
                 keyboardType="email-address"
+                style={{ borderWidth: 1, borderColor: '#ccc', padding: 10, marginBottom: 10 }}
               />
-              <Text className="font-bold mb-2">Password:</Text>
+              <Text style={{ fontWeight: 'bold', marginBottom: 10 }}>Password:</Text>
               <TextInput
-                className="border border-slate-300 px-3 py-2"
                 value={password}
                 onChangeText={setPassword}
                 secureTextEntry={true}
+                style={{ borderWidth: 1, borderColor: '#ccc', padding: 10, marginBottom: 10 }}
               />
 
               <TouchableOpacity
-                className="bg-black py-4 mt-6 rounded-lg"
                 onPress={handleRegister}
+                style={{ backgroundColor: 'black', padding: 10, borderRadius: 5 }}
               >
-                <Text className="text-white font-semibold text-center">
+                <Text style={{ color: 'white', fontWeight: 'bold', textAlign: 'center' }}>
                   Register
                 </Text>
               </TouchableOpacity>
 
-              <View className="flex-row justify-center items-center mt-4">
-                <Text className="text-slate-500">Already a User?</Text>
+              <View style={{ flexDirection: 'row', justifyContent: 'center', alignItems: 'center', marginTop: 10 }}>
+                <Text style={{ color: '#999' }}>Already a User?</Text>
                 <Pressable onPress={() => setType("login")}>
-                  <Text className="font-bold"> Login</Text>
+                  <Text style={{ fontWeight: 'bold' }}> Login</Text>
                 </Pressable>
               </View>
-              {/* {loading
-              ?
-              <ActivityIndicator size={"large"} />
-                :
-              }
-              {error && <Text style={{color:"red"}}>{error}</Text>} */}
             </View>
           </Pressable>
         )}
@@ -159,30 +147,5 @@ const AuthenticationModal = ({ modalVisible, setModalVisible }) => {
     </View>
   );
 };
-
-const styles = StyleSheet.create({
-  overlay: {
-    flex: 1,
-    backgroundColor: "rgba(0, 0, 0, 0.5)",
-    justifyContent: "center",
-    alignItems: "center",
-  },
-  loginButton: {
-    backgroundColor: "#0080ff",
-    padding: 10,
-    borderRadius: 5,
-    marginTop: 10,
-  },
-  closeButton: {
-    backgroundColor: "#ccc",
-    padding: 10,
-    borderRadius: 5,
-    marginTop: 10,
-  },
-  buttonText: {
-    color: "#fff",
-    textAlign: "center",
-  },
-});
 
 export default AuthenticationModal;

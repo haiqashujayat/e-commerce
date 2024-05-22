@@ -14,7 +14,7 @@ const Cart = ({ navigation }) => {
 
   const calculateTotalAmount = async (data) => {
     const subTotal = await data.reduce(
-      (acc, item) => acc + (Number(item.price)*Number(item.qty)),
+      (acc, item) => acc + (Number(item.price) * Number(item.qty)),
       0
     );
     setTotal(subTotal.toFixed(2));
@@ -35,34 +35,34 @@ const Cart = ({ navigation }) => {
     });
     fetchCartItems();
   }, [currentUser, cartItems?.length]);
+
   return (
-    <SafeAreaView className="flex-1 w-full p-5 bg-white">
+    <SafeAreaView style={{ flex: 1, width: "100%", padding: 20, backgroundColor: "#ffffff" }}>
       <View>
-        <Text className="font-bold text-xl">My Cart</Text>
+        <Text style={{ fontWeight: "bold", fontSize: 20 }}>My Cart</Text>
       </View>
       {isLoggedIn ? (
-          <ScrollView className="mt-4 " showsVerticalScrollIndicator={false}>
-            {cartItems?.map((item) => (
-              <CartItem
-                key={item.id}
-                id={item.id}
-                title={item.title}
-                brand={item.brand}
-                qty={item.qty}
-                image={item.image}
-                price={item.price}
-              />
-            ))}
-          </ScrollView>
-
+        <ScrollView style={{ marginTop: 16 }} showsVerticalScrollIndicator={false}>
+          {cartItems?.map((item) => (
+            <CartItem
+              key={item.id}
+              id={item.id}
+              title={item.title}
+              brand={item.brand}
+              qty={item.qty}
+              image={item.image}
+              price={item.price}
+            />
+          ))}
+        </ScrollView>
       ) : (
-        <View className="flex-1 items-center justify-center ">
-          <Text className="font-bold text-lg">Login to view your Cart!</Text>
+        <View style={{ flex: 1, alignItems: "center", justifyContent: "center" }}>
+          <Text style={{ fontWeight: "bold", fontSize: 18 }}>Login to view your Cart!</Text>
         </View>
       )}
-          <View>
-            <TotalSummaryCard totalPrice={total} />
-          </View>
+      <View>
+        <TotalSummaryCard totalPrice={total} />
+      </View>
     </SafeAreaView>
   );
 };

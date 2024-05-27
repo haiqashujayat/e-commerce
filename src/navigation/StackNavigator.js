@@ -21,6 +21,7 @@ const MainStackNavigator = () => {
             headerShown:false
         }}
         >
+            
         <Stack.Screen name='homescreen' component={HomeScreen} />
         <Stack.Screen name='detailscreen' component={DetailScreen} />
         <Stack.Screen name='productlistscreen' component={ProductListScreen} />
@@ -29,7 +30,7 @@ const MainStackNavigator = () => {
 }
 
 const CartStackNavigator = () => {
-   return( <Stack.Navigator
+   return( <Stack.Navigator 
     initialRouteName='cart-screen'
     screenOptions={{
         headerStyle:{

@@ -1,25 +1,27 @@
+import React, { Component } from "react";
 import { Text, View, Pressable, Image } from "react-native";
-import React from "react";
 import Suit from "../../assets/suit.png";
 
-const OfferCard = () => {
-  return (
-    <View style={styles.container}>
-      <View style={styles.textContainer}>
-        <Text style={styles.discount}>50% Off</Text>
-        <Text style={styles.offer}>On everything today</Text>
-        <Text style={styles.code}>With code: FSCREATION</Text>
+class OfferCardClass extends Component {
+  render() {
+    return (
+      <View style={styles.container}>
+        <View style={styles.textContainer}>
+          <Text style={styles.discount}>50% Off</Text>
+          <Text style={styles.offer}>On everything today</Text>
+          <Text style={styles.code}>With code: FSCREATION</Text>
 
-        <Pressable style={styles.button}>
-          <Text style={styles.buttonText}>Get Now</Text>
-        </Pressable>
+          <Pressable style={styles.button}>
+            <Text style={styles.buttonText}>Get Now</Text>
+          </Pressable>
+        </View>
+        <View>
+          <Image source={Suit} style={styles.image} />
+        </View>
       </View>
-      <View>
-        <Image source={Suit} style={styles.image} />
-      </View>
-    </View>
-  );
-};
+    );
+  }
+}
 
 const styles = {
   container: {
@@ -67,4 +69,4 @@ const styles = {
   },
 };
 
-export default OfferCard;
+export default OfferCardClass;

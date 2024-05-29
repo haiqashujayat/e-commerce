@@ -1,16 +1,20 @@
-import { Text, View, Pressable, ToastAndroid } from "react-native";
 import React, { useContext } from "react";
+import { Text, View, Pressable, ToastAndroid } from "react-native";
 import CartContext from "../features/cartContext";
 import { addToOrders } from "../features/firebase/order";
 import OrderContext from "../features/orderContext";
 
-const TotalSummaryCard = ({ totalPrice }) => {
+interface TotalSummaryCardProps {
+  totalPrice: number;
+}
+
+const TotalSummaryCard: React.FC<TotalSummaryCardProps> = ({ totalPrice }) => {
   const { setCartItems } = useContext(CartContext);
   const { setOrderItems } = useContext(OrderContext);
 
   const placeOrder = async () => {
     const res = await addToOrders();
-    if (res.success === true) {
+    if (res && res.success === true) { // Check if res is defined before accessing its properties
       ToastAndroid.show("Order placed successfully!!!", ToastAndroid.BOTTOM);
       setCartItems([]);
       setOrderItems(res.data);

@@ -72,8 +72,94 @@ title: Blazer
 
 Product 10 
 
-brand: Roadster
-description: Roadster is a popular brand of men's jeans that offers a variety of styles to suit different needs and occasions. Whether you're looking for a pair of jeans to wear to work, to the gym, or on a night out, Roadster has a style that's perfect for you.  Roadster jeans are made from high-quality denim that's both durable and comfortable. The jeans are also designed to flatter a variety of body types, so you're sure to find a pair that fits you perfectly.  In addition to their stylish designs, Roadster jeans are also known for their affordable prices. You can find a great pair of Roadster jeans for less than $200, making them a great option for budget-minded shoppers.
-image:https://5.imimg.com/data5/ECOM/Default/2022/9/JE/XA/VP/148827935/28-8275705-roadster-original-imafgwg5pudqfrnj-500x500.jpg
-price: 79.9
-title: Regular Men Jean
+brand: Audeze
+description:The LCD Origins planar magnetic headphones series represents a decade-old tradition which began with the first LCD-2. Luxuriously spacious with warm tonal balance and powerful bass, these luxury high-end headphones beautifully articulate the power and nuance of your favorite music.
+image:https://www.audeze.com/cdn/shop/files/LCD-3-ProductImage_1512x.png?v=1699400416
+price: 1932.2
+title: LCD-3
+
+
+Product 11
+
+brand: Audeze
+description:The LCD Origins planar magnetic headphones series represents a decade-old tradition which began with the first LCD-2. Luxuriously spacious with warm tonal balance and powerful bass, these luxury high-end headphones beautifully articulate the power and nuance of your favorite music.
+image:https://www.audeze.com/cdn/shop/products/LCD2rosewood_03final_1512x.png?v=1612917863
+price: 1000
+title: LCD-2
+
+Product 12
+
+brand: Audeze
+description:The LCD Origins planar magnetic headphones series represents a decade-old tradition which began with the first LCD-2. Luxuriously spacious with warm tonal balance and powerful bass, these luxury high-end headphones beautifully articulate the power and nuance of your favorite music.
+image:https://www.audeze.com/cdn/shop/products/LCD-2ClosedBackSquareEditedagain_1512x.png?v=1599605242
+price: 899.0
+title: LCD-2-Closed_Black
+
+Product 13
+
+brand: Audeze
+description:The LCD Origins planar magnetic headphones series represents a decade-old tradition which began with the first LCD-2. Luxuriously spacious with warm tonal balance and powerful bass, these luxury high-end headphones beautifully articulate the power and nuance of your favorite music.
+image:https://www.audeze.com/cdn/shop/products/LCD-2_Classic_Updated_2019_4471x4471_1512x.jpg?v=1570129685
+price: 899.0
+title: LCD-2 Classic
+
+
+Product 14
+
+brand: LogiTech
+description:A minimalist mouse with a key layout for Mac with Tactile Quiet low-profile mechanical switches and Smart Backlighting.
+image: https://resource.logitech.com/w_692,c_lpad,ar_4:3,q_auto,f_auto,dpr_1.0/d_transparent.gif/content/dam/logitech/en/products/mice/mx-master-3s-mac-bluetooth-mouse/gallery/pale-grey/mx-master-3s-for-mac-mouse-top-view-pale-grey.png?v=1
+price: 52.99
+title: MX MASTER 3S FOR MAC
+
+Product 15
+
+brand: LogiTech
+description:MX Palm Rest offers a sturdy support and smooth surface, which provide all-day comfort. It’s the premium palm rest you can place and position however you like.
+image: https://resource.logitech.com/w_692,c_lpad,ar_4:3,q_auto,f_auto,dpr_1.0/d_transparent.gif/content/dam/logitech/en/products/keyboards/mx-palm-rest/gallery/mx-palm-rest-gallery-1.png?v=1
+price: 52.99
+title: MX PALM REST
+
+
+Product 16
+
+brand: LogiTech
+description:Beautiful and comfortable desk mat with anti-slip base and spill-resistant design
+image: https://resource.logitech.com/w_692,c_lpad,ar_4:3,q_auto,f_auto,dpr_1.0/d_transparent.gif/content/dam/logitech/en/products/mice/desk-mat-studio-series/gallery/logitech-desk-mat-studio-series-corner-view-mid-grey.png?v=1
+price: 19.99
+title: LOGITECH DESK MAT - STUDIO SERIES
+
+Product 17
+
+brand: LogiTech
+description:Full HD Camera with USB-C for Live Streaming and Content Creation
+image: https://resource.logitech.com/w_692,c_lpad,ar_4:3,q_auto,f_auto,dpr_1.0/d_transparent.gif/content/dam/logitech/en/products/webcams/streamcam/gallery/streamcam-gallery-1-graphite.png?v=1
+price: 139.99
+title: STREAMCAM
+
+
+Product 18
+
+brand: LogiTech
+description:Active Dynamic XLR Broadcast Microphone with ClearAmp
+image: https://resource.logitech.com/w_692,c_lpad,ar_4:3,q_auto,f_auto,dpr_1.0/d_transparent.gif/content/dam/logitech/en/products/microphones/blue-sona/gallery/blue-sona-microphones-quarter-right-view-off-white.png?v=1
+price: 349.99
+title: BLUE SONA
+
+Product 19
+
+brand: LogiTech
+description:Premium LED Streaming Key Light with TrueSoft
+image: https://resource.logitechg.com/w_692,c_lpad,ar_4:3,q_auto,f_auto,dpr_1.0/d_transparent.gif/content/dam/gaming/en/products/litra-beam-g/gallery/litra-beam-gallery-5.png?v=1
+price: 99.99
+title: LITRA BEAM
+
+
+Product 20
+
+brand: LogiTech
+description:Yeti GX Dynamic Mic and Compass Boom Arm
+image:https://resource.logitechg.com/w_692,c_lpad,ar_4:3,q_auto,f_auto,dpr_1.0/d_transparent.gif/content/dam/gaming/en/products/yeticaster-gx/gallery/yeticaster-gx-gallery-1.png?v=1
+price: 229.99
+title: YETICASTER GX
+

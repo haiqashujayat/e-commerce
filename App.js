@@ -6,8 +6,7 @@ import { useState } from "react";
 import { AuthProvider } from "./src/features/authContext";
 import { ProductProvider } from "./src/features/productContext";
 import { CartProvider } from "./src/features/cartContext";
-import { OrderProvider } from "./src/features/orderContext";
-
+import { OrderProvider } from "./src/features/orderContext"; 
 export default function App() {
   const [isLoggedIn, setIsLoggedIn] = useState(false);
   const [currentUser, setCurrentUser] = useState(null);

@@ -22,7 +22,7 @@ To get started with this project, follow the steps below:
    git clone https://github.com/haiqashujayat/e-commerce.git
 
 
-   DEPENDENCIES:
+ 
    
 below is the list  of major dependencies of project :
 

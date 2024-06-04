@@ -1,4 +1,7 @@
-// Home.js
+
+
+
+
 import React, { useContext, useEffect, useState } from 'react';
 import { Text, View, Image, ScrollView, Pressable, TextInput } from 'react-native';
 import MaterialIcons from 'react-native-vector-icons/MaterialIcons';
@@ -10,33 +13,16 @@ import AuthenticationModal from '../components/AuthenticationModal';
 import AuthContext from '../features/authContext';
 import ProductContext from '../features/productContext';
 import { getProducts } from '../features/firebase/product';
-import {getFirestore,collection,getDoc,addDoc,onSnapshot,doc,deleteDoc,updateDoc,query,where} from 'firebase/firestore';
+
 
 const Home = ({ navigation }) => {
-  const [product,setProduct] = useState();
-
-   useEffect(()=>{
-      const db = getFirestore()
-      const snapShot = collection(db,'products')
-      const q = query(snapShot)
-      onSnapshot(q,snapShot =>{
-          console.log('running snapshot ...')
-         const product =snapShot.docs.map(doc => ({ id: doc.id, ...doc.data() }))
-         setProduct(product)
-
-        console.log('\n\n\n Items data inSide HOOK ==>\n',product)
-  })
-  
-
-  },[])
-
   const [modalVisible, setModalVisible] = useState(false);
   const { isLoggedIn, currentUser } = useContext(AuthContext);
   const { products, setProducts } = useContext(ProductContext);
 
+
   const fetchAllProducts = async () => {
     const result = await getProducts();
-    console.log("Fetched Products: ", result); // Log fetched products
     setProducts(result);
   };
 
@@ -58,13 +44,14 @@ const Home = ({ navigation }) => {
         </View>
 
         {!isLoggedIn && (
-          <View style={{ position: 'absolute', top: 0, right: 0, margin: 10 }}>
-            <Pressable onPress={() => setModalVisible(!modalVisible)} style={{ flexDirection: 'row', alignItems: 'center', justifyContent: 'flex-end', borderWidth: 1, borderColor: 'black', borderRadius: 20, paddingVertical: 8, paddingHorizontal: 15 }}>
-              <Image source={UserLogo} style={{ height: 40, width: 40, backgroundColor: '#aaaaaa', borderRadius: 50 }} />
-              <Text style={{ fontWeight: 'bold', paddingLeft: 5, color: '#000000' }}>Login</Text>
-            </Pressable>
-          </View>
-        )}
+  <View style={{ position: 'absolute', top: 0, right: 0, margin: 10 }}>
+    <Pressable onPress={() => setModalVisible(!modalVisible)} style={{ flexDirection: 'row', alignItems: 'center', justifyContent: 'flex-end', borderWidth: 1, borderColor: 'black', borderRadius: 20, paddingVertical: 8, paddingHorizontal: 15 }}>
+      <Image source={UserLogo} style={{ height: 40, width: 40, backgroundColor: '#aaaaaa', borderRadius: 50 }} />
+      <Text style={{ fontWeight:'bold', paddingLeft: 5, color: '#000000' }}>Login</Text>
+    </Pressable>
+  </View>
+)}
+
 
         <View style={{ backgroundColor: '#a3b18a', padding: 20, borderRadius: 10, marginVertical: 20 }}>
           <View style={{ alignItems: 'center' }}>
@@ -89,7 +76,7 @@ const Home = ({ navigation }) => {
 
         <View style={{ marginTop: 20, paddingHorizontal: 20, flexDirection: 'row', backgroundColor: '#E0E0E0', borderRadius: 30, alignItems: 'center', paddingVertical: 10 }}>
           <MaterialIcons name="search" size={24} color="#111" style={{ marginLeft: 10, marginRight: 5 }} />
-          <TextInput placeholder="Browse any category" placeholderTextColor="#344e41" style={{ flex: 1, fontWeight: 'bold', fontSize: 20 }} />
+          <TextInput placeholder="Browse any category" placeholderTextColor="#344e41" style={{ flex: 1,fontWeight:'bold', fontSize: 20 }} />
         </View>
 
         <View style={{ marginTop: 20, paddingHorizontal: 20 }}>
@@ -100,7 +87,7 @@ const Home = ({ navigation }) => {
           <View style={{ flexDirection: 'row', justifyContent: 'space-between', alignItems: 'center', marginBottom: 10 }}>
             <Text style={{ fontSize: 22, fontWeight: 'bold' }}>New Arrivals</Text>
             <Pressable onPress={() => navigation.navigate("productlistscreen")}>
-              <Text style={{ fontWeight: 'bold', color: '#283618' }}>View All</Text>
+              <Text style={{  fontWeight: 'bold',color: '#283618' }}>View All</Text>
             </Pressable>
           </View>
           <ScrollView horizontal showsHorizontalScrollIndicator={false}>
@@ -116,7 +103,7 @@ const Home = ({ navigation }) => {
           <View style={{ flexDirection: 'row', justifyContent: 'space-between', alignItems: 'center', marginBottom: 10 }}>
             <Text style={{ fontSize: 22, fontWeight: 'bold' }}>Tech Gadgets</Text>
             <Pressable onPress={() => navigation.navigate("productlistscreen")}>
-              <Text style={{ fontWeight: 'bold', color: '#283618' }}>View All</Text>
+              <Text style={{ fontWeight: 'bold',color: '#283618' }}>View All</Text>
             </Pressable>
           </View>
           <ScrollView horizontal showsHorizontalScrollIndicator={false}>
@@ -135,3 +122,5 @@ const Home = ({ navigation }) => {
 };
 
 export default Home;
+
+

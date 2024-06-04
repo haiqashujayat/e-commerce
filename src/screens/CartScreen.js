@@ -19,7 +19,7 @@ const Cart = ({ navigation }) => {
     );
     setTotal(subTotal.toFixed(2));
   };
- 
+
   const fetchCartItems = async () => {
     const res = await getCartItems();
     if (res.success === true) {

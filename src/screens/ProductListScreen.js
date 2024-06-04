@@ -11,7 +11,6 @@ const ProductListScreen = ({ navigation }) => {
 
   const fetchAllProducts = async () => {
     const result = await getProducts();
-    console.log(result);
     setProducts(result);
   };
 

@@ -1,7 +1,3 @@
-
-
-
-
 import React, { useContext, useEffect, useState } from 'react';
 import { Text, View, Image, ScrollView, Pressable, TextInput } from 'react-native';
 import MaterialIcons from 'react-native-vector-icons/MaterialIcons';
@@ -101,7 +97,7 @@ const Home = ({ navigation }) => {
 
         <View style={{ marginTop: 20, paddingHorizontal: 20 }}>
           <View style={{ flexDirection: 'row', justifyContent: 'space-between', alignItems: 'center', marginBottom: 10 }}>
-            <Text style={{ fontSize: 22, fontWeight: 'bold' }}>Tech Gadgets</Text>
+            <Text style={{ fontSize: 22, fontWeight: 'bold' }}>Clothing Brand</Text>
             <Pressable onPress={() => navigation.navigate("productlistscreen")}>
               <Text style={{ fontWeight: 'bold',color: '#283618' }}>View All</Text>
             </Pressable>
@@ -122,5 +118,3 @@ const Home = ({ navigation }) => {
 };
 
 export default Home;
-
-
